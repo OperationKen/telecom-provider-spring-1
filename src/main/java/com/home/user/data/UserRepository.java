@@ -23,6 +23,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query(value = "INSERT INTO  " + tableName + " VALUES(?1, ?2, ?3, ?4)", nativeQuery = true)
 	public void addDevice(String userName, String device, String number, String plan); 
 	
+//	@Query(value = "DELETE FROM  " + tableName + " WHERE id = ?1", nativeQuery = true)
+//	public void deleteUserById(Integer id); 
+//	
 	/*
 	 * write others
 	 */

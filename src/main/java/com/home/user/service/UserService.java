@@ -38,6 +38,11 @@ public class UserService {
 		return optional;
 	}
 
+	// ------- DELETE USER BY ID------
+	public void deleteUserById(Integer id) {
+		repository.deleteById(id);
+	}
+
 	/*
 	 * 
 	 * 

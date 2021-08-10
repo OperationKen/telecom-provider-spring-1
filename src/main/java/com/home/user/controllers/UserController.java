@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,8 +40,7 @@ public class UserController {
 		User body = service.save(user);
 		return new ResponseEntity<>(body, HttpStatus.CREATED);
 	}
-	
-	
+
 	// ------ FIND BY ID -----
 	@GetMapping("/user/{id}")
 	public ResponseEntity<User> findById(@PathVariable("id") Integer id) {
@@ -56,6 +56,17 @@ public class UserController {
 		return new ResponseEntity<>(service.findByUserName(name), HttpStatus.OK);
 	}
 
+	// ------ DELETE BY ID -----
+	@DeleteMapping("/user/delete/{id}")
+	public ResponseEntity<Void> deleteById(@PathVariable("id") Integer id) {
+		service.deleteUserById(id);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+	
+	
+	
+	
 	/*
 	 * 
 	 * 
@@ -66,8 +77,7 @@ public class UserController {
 	 * 
 	 * 
 	 */
-	
-	
+
 	// add device
 //	@PostMapping("/user/{userName}")
 //	public ResponseEntity<User> addDeviceByUserName(@PathVariable String name) {
