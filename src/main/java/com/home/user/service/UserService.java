@@ -43,6 +43,11 @@ public class UserService {
 		repository.deleteById(id);
 	}
 
+	// ------- GET COUNT BY USER NAME ------
+	public Integer entriesByUserName(String name) {
+		return repository.entriesByUserName(name);
+	}
+
 	/*
 	 * 
 	 * 

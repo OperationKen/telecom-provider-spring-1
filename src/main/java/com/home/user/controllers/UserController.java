@@ -63,10 +63,13 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
-	
-	
-	
-	
+	// ------ GET COUNT BY USER NAME -----
+	@GetMapping("/user/count/{userName}")
+	public ResponseEntity<Integer> countByUserName(@PathVariable("userName") String name) {
+		return new ResponseEntity<>(service.entriesByUserName(name), HttpStatus.OK);
+
+	}
+
 	/*
 	 * 
 	 * 
@@ -78,21 +81,6 @@ public class UserController {
 	 * 
 	 */
 
-	// add device
-//	@PostMapping("/user/{userName}")
-//	public ResponseEntity<User> addDeviceByUserName(@PathVariable String name) {
-//		return new ResponseEntity<>(service.findByUserName(name), HttpStatus.OK);
-//	}
 
-	// find * from table where userName = ''
-
-	// updateNumberByUserName
-	// addNumberByUserName
-
-	// addDeviceByUserName
-	// removeDeviceByUserName
-
-	// addPlan
-	// removePlan
 
 }
