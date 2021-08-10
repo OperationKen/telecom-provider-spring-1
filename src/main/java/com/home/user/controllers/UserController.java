@@ -49,9 +49,10 @@ public class UserController {
 	}
 
 	// ------ FIND BY USER NAME -----
-	// localhost:8080/users/user/name=Verla Peert
+	// localhost:8080/users/user/name/Verla Peert
 	@GetMapping("/user/name/{nameOfUser}")
-	public ResponseEntity<User> findByUserName(@PathVariable("nameOfUser") String name) {
+	public ResponseEntity<List<User>> findByUserName(@PathVariable("nameOfUser") String name) {
+//		System.out.println(  new ResponseEntity<>(service.findByUserName(name), HttpStatus.OK)  );
 		return new ResponseEntity<>(service.findByUserName(name), HttpStatus.OK);
 	}
 

@@ -32,9 +32,10 @@ public class UserService {
 	}
 
 	// ------- FIND BY USER NAME ------
-	public User findByUserName(String name) {
+	public List<User> findByUserName(String name) {
 		List<User> optional = repository.findByUserName(name);
-		return optional.get(0);
+//		return optional.get(0);
+		return optional;
 	}
 
 	/*
