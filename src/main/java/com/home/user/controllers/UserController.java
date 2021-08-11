@@ -70,6 +70,13 @@ public class UserController {
 
 	}
 
+	// ------ GET PLANS BY USER NAME -----
+	@GetMapping("/user/plans/{userName}")
+	public ResponseEntity<List<String>> plansByUserName(@PathVariable("userName") String name) {
+		return new ResponseEntity<>(service.plansByUserName(name), HttpStatus.OK);
+
+	}
+
 	/*
 	 * 
 	 * 
@@ -80,7 +87,5 @@ public class UserController {
 	 * 
 	 * 
 	 */
-
-
 
 }

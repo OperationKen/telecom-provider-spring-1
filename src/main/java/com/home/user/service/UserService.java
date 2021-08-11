@@ -48,6 +48,11 @@ public class UserService {
 		return repository.entriesByUserName(name);
 	}
 
+	// ------- GET PLANS BY USER NAME ------
+	public List<String> plansByUserName(String name) {
+		return repository.getPlansByUserName(name);
+	}
+
 	/*
 	 * 
 	 * 

@@ -26,5 +26,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query(value = "SELECT count(*) FROM " + tableName + " WHERE userName =?1", nativeQuery = true)
 	public Integer entriesByUserName(String userName); 
 	
+	// plans by user
+	@Query(value = "SELECT plan FROM " + tableName + " WHERE userName =?1", nativeQuery = true)
+	public List<String> getPlansByUserName(String userName); 
+	
 
 }
