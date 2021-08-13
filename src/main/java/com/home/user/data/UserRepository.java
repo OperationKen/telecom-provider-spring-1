@@ -13,8 +13,7 @@ import com.home.user.beans.User;
 @Repository // manages transaction processing
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	String tableName = "telecom_provider_demo";
-	
+	String tableName = "telecom";
 	
 	// CRUD methods
 	@Query(value = "SELECT * FROM " + tableName + " WHERE userName = ?1", nativeQuery = true)

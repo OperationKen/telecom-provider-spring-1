@@ -1,92 +1,82 @@
 package com.home.user.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity // this is an object to be managed by Hibernate
-
-@Table(name = "telecom_provider_demo")
+@Table(name = "user_info")
 public class User {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private int id;
+	@Column(name = "user_id")
+	private int user_id;
 
-	@Column(name = "username")
-	private String userName;
+	@Column(name = "email")
+	private String email;
 
-	private String device;
+	@Column(name = "password")
+	private String password;
 
-	@Column(name = "phonenumber")
-	private String phoneNumber;
-
-	@Column(name = "plan")
-	private String phonePlan;
+	@OneToMany(mappedBy = "user")
+	private Set<UserPlans> userPlans = new HashSet<>();
 
 	public User() {
 		super();
 	}
 
-	public User(String userName, String device, String phoneNumber, String plan) {
+	public User(String email, String password, Set<UserPlans> userPlans) {
 		super();
-		this.userName = userName;
-		this.device = device;
-		this.phoneNumber = phoneNumber;
-		this.phonePlan = plan;
+		this.email = email;
+		this.password = password;
+		this.userPlans = userPlans;
 	}
 
-	public User(int id, String userName, String device, String phoneNumber, String plan) {
+	public User(int user_id, String email, String password, Set<UserPlans> userPlans) {
 		super();
-		this.id = id;
-		this.userName = userName;
-		this.device = device;
-		this.phoneNumber = phoneNumber;
-		this.phonePlan = plan;
+		this.user_id = user_id;
+		this.email = email;
+		this.password = password;
+		this.userPlans = userPlans;
 	}
 
-	public int getId() {
-		return id;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getName() {
-		return userName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setName(String name) {
-		this.userName = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getDevice() {
-		return device;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setDevice(String device) {
-		this.device = device;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public Set<UserPlans> getUserPlans() {
+		return userPlans;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getPlan() {
-		return phonePlan;
-	}
-
-	public void setPlan(String plan) {
-		this.phonePlan = plan;
+	public void setUserPlans(Set<UserPlans> userPlans) {
+		this.userPlans = userPlans;
 	}
 
 }
